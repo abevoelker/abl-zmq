@@ -1,1 +1,1 @@
-MESSAGE ZMQ:version().
+MESSAGE ZMQ:versionString().
