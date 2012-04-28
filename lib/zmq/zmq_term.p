@@ -1,0 +1,10 @@
+DEFINE INPUT-OUTPUT PARAMETER ipmContext AS MEMPTR NO-UNDO.
+DEFINE OUTPUT       PARAMETER opiStatus  AS INTEGER NO-UNDO.
+
+RUN zmq_term(INPUT-OUTPUT ipmContext,
+             OUTPUT       opiStatus).
+
+PROCEDURE zmq_term EXTERNAL "vendor/2.2.0/windows_32/libzmq.dll" CDECL:
+  DEFINE INPUT-OUTPUT PARAMETER context_ptr AS MEMPTR.
+  DEFINE RETURN       PARAMETER ret_status  AS LONG.
+END PROCEDURE.
