@@ -1,12 +1,19 @@
 # abl-zmq
 
-A [ØMQ][1] binding for OpenEdge ABL.
+A (failed) native [ØMQ][1] binding for OpenEdge ABL.
 
 ## Status
 
-This is a simple proof-of-concept at the moment. This could turn into a
-KickStarter project or something if there is any interest, but I don't
-think I will invest much personal time into it.
+I've stopped working on this as I think it's non-viable. I get
+segfaults shortly after calling `zmq_init` (although I do get a
+valid pointer back immediately after the call).  I think the
+issue is the lack of threading support in ABL.
+
+The only viable way to use ZeroMQ in OpenEdge ABL is probably
+by using the existing .NET binding through the CLR bridge
+(here's some [example code][3] written by Mike Fetchner).
+Unfortunately, it's not a Unix-friendly solution as [Mono][4]
+isn't supported by ABL.
 
 ## License
 
@@ -15,3 +22,5 @@ binaries are built from the ØMQ project's official [LGPLv3+ source][2].
 
 [1]: http://www.zeromq.org/
 [2]: http://www.zeromq.org/intro:get-the-software
+[3]: http://communities.progress.com/pcom/message/136057#135953
+[4]: http://www.mono-project.com/
